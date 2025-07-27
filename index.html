@@ -18,355 +18,176 @@
             --light-grey: #f4f4f4;
             --white: #ffffff;
             --font-primary: 'Poppins', sans-serif;
-            --font-arabic: 'Cairo', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            color: var(--dark-grey);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); color: var(--dark-grey); background-color: var(--white); line-height: 1.6; }
 
         /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--switch-blue);
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        h1, h2, h3 { font-weight: 700; margin-bottom: 1rem; color: var(--switch-blue); }
         h1 { font-size: 3.5rem; }
         h2 { font-size: 2.5rem; text-align: center; }
         h3 { font-size: 1.5rem; }
-
-        p {
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        .section-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-        }
+        p { margin-bottom: 1rem; color: #555; }
+        .section-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; }
 
         /* Header */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 0.5rem 2rem;
+            background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            z-index: 1000; display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         .switch-logo img {
-            height: 60px; /* UPDATED: Increased logo size */
+            height: 100px; /* INCREASED: From 80px to 100px */
         }
-        
-        .header .cta-button {
+        /* UPDATED: Restyled 'Email Us' button */
+        .header-cta {
+            background-color: var(--ola-yellow);
+            color: var(--dark-grey);
             padding: 0.8rem 1.8rem;
             font-size: 1rem;
-            margin: 0;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .header-cta:hover {
+            background-color: #ffc400;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
-        /* 1. Welcome & Vision Setting (Hero Section) */
+        /* Hero Section */
         .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            overflow: hidden;
+            position: relative; height: 100vh; display: flex; align-items: center;
+            justify-content: center; text-align: center; color: var(--white); overflow: hidden;
         }
-
         .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://ik.imagekit.io/ko0ec3rfg/Ola/After%20Image%20-%20Transformed%20Station.png') no-repeat center center/cover;
-            animation: zoom-in-out 20s infinite alternate;
-            z-index: -2;
+            animation: zoom-in-out 20s infinite alternate; z-index: -2;
         }
-        
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 46, 94, 0.7); /* Dark blue overlay */
-            z-index: -1;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 46, 94, 0.7); z-index: -1;
         }
-
-        @keyframes zoom-in-out {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
+        @keyframes zoom-in-out { from { transform: scale(1); } to { transform: scale(1.1); } }
         .hero-content {
-            max-width: 900px;
-            padding-top: 80px; /* UPDATED: Prevents text from being cut off */
-            animation: fade-in 1.5s ease-in-out;
+            max-width: 900px; padding-top: 100px; animation: fade-in 1.5s ease-in-out;
         }
-        
-        .hero-content h1 {
-            color: var(--white);
-            font-size: 4rem;
-        }
-        
-        .hero-content .tagline {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--ola-yellow);
-            margin-top: 1rem;
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .hero-content h1 { color: var(--white); font-size: 4rem; }
+        .hero-content .tagline { font-size: 1.8rem; font-weight: 600; color: var(--ola-yellow); margin-top: 1rem; }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* General Slideshow Styles */
         .slideshow-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            background-color: #eee;
+            position: relative; width: 100%; overflow: hidden;
+            border-radius: 5px; margin-bottom: 1rem; background-color: #eee;
         }
-        .experiential-item .slideshow-container {
-             height: 180px;
-        }
-        .activation-card .slideshow-container, #overview-slideshow {
-            height: 250px;
-            margin-top: 1rem;
-        }
+        .experiential-item .slideshow-container { height: 180px; }
+        .activation-card .slideshow-container, #overview-slideshow { height: 250px; margin-top: 1rem; }
         .slideshow-container .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;
         }
-        .slideshow-container .slide.active {
-            opacity: 1;
-        }
+        .slideshow-container .slide.active { opacity: 1; }
 
         /* Before & After Visual */
         .before-after-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 2rem auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative; width: 100%; max-width: 900px; margin: 2rem auto;
+            border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 500px; /* Fixed height for better control */
         }
-        .before-after-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            pointer-events: none;
+        .before-after-container img { 
+            display: block; width: 100%; height: 100%; 
+            object-fit: cover; /* FIXED: Better image fitting */
+            object-position: center center; /* FIXED: Center the image properly */
+            pointer-events: none; 
         }
-        .before-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .before-image { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
         }
-        .after-image {
-            position: relative;
-            width: 50%;
-            overflow: hidden;
-            border-right: 3px solid var(--white);
+        .after-image { 
+            position: relative; width: 50%; overflow: hidden; 
+            border-right: 3px solid var(--white); height: 100%;
         }
         .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 100%;
-            width: 50px;
-            cursor: ew-resize;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            height: 100%; width: 50px; cursor: ew-resize; display: flex; align-items: center; justify-content: center;
         }
         .slider-handle-button {
-            width: 40px;
-            height: 40px;
-            background-color: var(--white);
-            border-radius: 50%;
-            color: var(--switch-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            pointer-events: none;
+            width: 40px; height: 40px; background-color: var(--white); border-radius: 50%;
+            color: var(--switch-blue); display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.3); pointer-events: none;
         }
         
-        .experiential-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        .experiential-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-        }
+        .experiential-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .experiential-item { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
         
         /* Activation Sections */
-        .activation-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .activation-card {
-            background: var(--light-grey);
-            border-radius: 10px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .activation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        .activation-card .concept {
-            font-weight: 600;
-        }
-        .activation-card .how-switch-helps {
-            font-size: 0.9rem;
-            color: var(--ola-green);
-            background: #e0f2f1;
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-top: auto;
-        }
+        .activation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .activation-card { background: var(--light-grey); border-radius: 10px; padding: 2rem; display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s; }
+        .activation-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .activation-card .concept { font-weight: 600; }
+        .activation-card .how-switch-helps { font-size: 0.9rem; color: var(--ola-green); background: #e0f2f1; padding: 0.5rem; border-radius: 5px; margin-top: auto; }
 
         /* Value Proposition Section */
         .value-prop { background-color: var(--switch-blue); }
         .value-prop h2 { color: var(--white); }
-        .value-prop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            color: var(--white);
-            text-align: center;
-        }
-        .value-item {
-            background-color: rgba(255,255,255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-        }
+        .value-prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; color: var(--white); text-align: center; }
+        .value-item { background-color: rgba(255,255,255, 0.1); padding: 1.5rem; border-radius: 10px; }
         .value-item h3 { color: var(--ola-yellow); }
         .value-item p { color: #ccc; }
 
         /* CTA Form Section */
         .cta { text-align: center; }
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0 auto;
-            text-align: left;
-        }
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
+        .contact-form { max-width: 600px; margin: 2rem auto 0 auto; text-align: left; }
+        .contact-form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: var(--font-primary);
-            font-size: 1rem;
+            width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc;
+            border-radius: 5px; font-family: var(--font-primary); font-size: 1rem;
         }
         .contact-form button {
-            display: inline-block;
-            width: 100%;
-            background: var(--ola-yellow);
-            color: var(--dark-grey);
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s, background-color 0.3s;
-            border: none;
-            cursor: pointer;
+            display: inline-block; width: 100%; background: var(--ola-yellow); color: var(--dark-grey);
+            padding: 1rem 3rem; font-size: 1.2rem; font-weight: 700; text-decoration: none;
+            border-radius: 50px; transition: transform 0.3s, background-color 0.3s; border: none; cursor: pointer;
         }
-        .contact-form button:hover {
-            background-color: #ffc400;
-            transform: scale(1.02);
+        .contact-form button:hover { background-color: #ffc400; transform: scale(1.02); }
+        
+        /* Form Success/Error Messages */
+        .form-message {
+            padding: 1rem; margin: 1rem 0; border-radius: 5px; text-align: center;
+            font-weight: 600; display: none;
         }
+        .form-message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .form-message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
         
         /* Animation on Scroll */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
         
-        /* Media Queries for Responsiveness */
+        /* Media Queries */
         @media (max-width: 900px) {
             h1 { font-size: 2.5rem; }
             .hero-content h1 { font-size: 3rem; }
             h2 { font-size: 2rem; }
             .activation-grid { grid-template-columns: 1fr; }
+            .before-after-container { height: 300px; } /* Smaller height on mobile */
         }
-        
         @media (max-width: 600px) {
             .container { padding: 3rem 1rem; }
             h1 { font-size: 2rem; }
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content .tagline { font-size: 1.3rem; }
+            .header { padding: 0.5rem 1rem; }
+            .switch-logo img { height: 80px; }
+            .header-cta { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+            .hero-content { padding-top: 120px; }
         }
-
     </style>
 </head>
 <body>
@@ -375,11 +196,10 @@
         <div class="switch-logo">
             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Switch%20Communications%20Logo.png?updatedAt=1753572695581" alt="Switch Communications Logo">
         </div>
-        <a href="#cta-section" class="cta-button">Email Us</a>
+        <a href="#cta-section" class="header-cta">Email Us</a>
     </header>
 
     <main>
-        <!-- 1. Welcome & Vision Setting -->
         <section class="hero">
             <div class="hero-background"></div>
             <div class="hero-content">
@@ -388,7 +208,6 @@
             </div>
         </section>
 
-        <!-- The Challenge & Objective -->
         <section class="challenge-objective">
             <div class="container">
                 <div class="section-intro animate-on-scroll">
@@ -398,92 +217,72 @@
             </div>
         </section>
 
-        <!-- 2. OLA's Destination Strategy -->
         <section class="destination-strategy">
             <div class="container">
-                <div class="section-intro animate-on-scroll">
-                    <h2>OLA's Destination Strategy</h2>
-                </div>
+                <div class="section-intro animate-on-scroll"><h2>OLA's Destination Strategy</h2></div>
                 <div class="animate-on-scroll">
                     <h3 style="text-align:center; font-size: 1.8rem;">From a pump… to a place.</h3>
                     <div class="before-after-container" id="before-after">
-                        <div class="before-image">
-                            <!-- UPDATED: New 'Before' Image -->
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Before%20Image%20(Standard%20StationNew).png" alt="Standard Fuel Station">
-                        </div>
-                        <div class="after-image" id="after-image">
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/After%20Image%20-%20Transformed%20Station.png" alt="Vibrant OLA Destination">
-                        </div>
+                        <div class="before-image"><img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Before%20Image%20(Standard%20StationNew).png" alt="Standard Fuel Station"></div>
+                        <div class="after-image" id="after-image"><img src="https://ik.imagekit.io/ko0ec3rfg/Ola/After%20Image%20-%20Transformed%20Station.png" alt="Vibrant OLA Destination"></div>
                         <div class="slider-handle" id="slider-handle"><div class="slider-handle-button">↔</div></div>
                     </div>
                 </div>
                 <div class="experiential-grid">
-                    <!-- UPDATED: OLA Cafe Slideshow -->
                     <div class="experiential-item animate-on-scroll">
                         <div class="slideshow-container">
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/OLA%20Caf%C3%A9%20Corner%20Mockup.png" alt="OLA Café Corner Mockup" class="slide active">
+                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/OLA%20Caf%C3%A9%20Corner%20Mockup.png" alt="OLA Café Corner Mockup" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/OLA%20Caf%C3%A9%20Corners%20-%20inside.png" alt="OLA Café Corner Interior" class="slide">
                         </div>
-                        <h3>OLA Café Corners</h3>
-                        <p>Express coffee booths with shaded seating, USB charging, and quick snacks.</p>
+                        <h3>OLA Café Corners</h3><p>Express coffee booths with shaded seating, USB charging, and quick snacks.</p>
                     </div>
-                    <!-- UPDATED: Loyalty Zones Slideshow -->
                     <div class="experiential-item animate-on-scroll">
                         <div class="slideshow-container">
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/OLA%20Care%20Reports%20engen.png" alt="Loyalty Zone Concept 1" class="slide active">
+                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/OLA%20Care%20Reports%20engen.png" alt="Loyalty Zone Concept 1" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/zizo-imagination-e623e806-2958-44b4-bad7-43f1573a53e9.jpeg" alt="Loyalty Zone Concept 2" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Loyalty%20Zones1.png" alt="Loyalty Zone Concept 3" class="slide">
                         </div>
-                        <h3>Loyalty Zones</h3>
-                        <p>Interactive digital zones with QR codes and games like "Spin & Win" to earn Fuel Points.</p>
+                        <h3>Loyalty Zones</h3><p>Interactive digital zones with QR codes and games like "Spin & Win" to earn Fuel Points.</p>
                     </div>
-                    <!-- UPDATED: OLA Care Reports Slideshow -->
                     <div class="experiential-item animate-on-scroll">
                          <div class="slideshow-container">
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/Digital%20Loyalty%20Zone%20Mockup%20top%20view.png" alt="OLA Care Reports Mockup 1" class="slide active">
+                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/Digital%20Loyalty%20Zone%20Mockup%20top%20view.png" alt="OLA Care Reports Mockup 1" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/Happy%20Emp.png" alt="OLA Care Reports Mockup 2" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/taaft.com-image-generator-by-taaft-1753538321.png" alt="OLA Care Reports Mockup 3" class="slide">
                         </div>
-                        <h3>"OLA Care Reports"</h3>
-                        <p>Free on-ground car checks for tires, oil, and fluids by polite, professional staff.</p>
+                        <h3>"OLA Care Reports"</h3><p>Free on-ground car checks for tires, oil, and fluids by polite, professional staff.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- 3. Activating the Experience -->
         <section class="activating-experience">
             <div class="container">
-                <div class="section-intro animate-on-scroll">
-                    <h2>Activating the Experience: Switch's Capabilities in Action</h2>
-                </div>
+                <div class="section-intro animate-on-scroll"><h2>Activating the Experience: Switch's Capabilities in Action</h2></div>
                 <div class="activation-grid">
-                    <!-- UPDATED: On-Ground Activation Slideshow -->
                     <div class="activation-card animate-on-scroll">
                         <h3>On-Ground Activation / Roadshow Energy</h3>
                         <p class="concept">Concept: Reintroduce OLA in-person with high-energy, seasonal roadshows at high-traffic stations.</p>
-                        <div class="slideshow-container">
-                           <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Live%20Event%20Zone%20Mockup.png" alt="Live Event Mockup" class="slide active">
+                        <div class="slideshow-container" data-slideshow="roadshow">
+                           <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Live%20Event%20Zone%20Mockup.png" alt="Live Event Mockup" class="slide">
                         </div>
                         <p class="how-switch-helps"><strong>How Switch Helps:</strong> Décor, Lighting, Sound, Live DJ/MC, Event Management, Production, Kit Giveaways.</p>
                     </div>
-                    <!-- UPDATED: Hotdog Booths Slideshow -->
                     <div class="activation-card animate-on-scroll">
                         <h3>"Fastest Bite in Town!" Hotdog Booths</h3>
                         <p class="concept">Concept: Branded mini-booths serving the "Fastest, Tastiest & Cheapest Hotdog in Town!" to act as a traffic generator.</p>
-                        <div class="slideshow-container">
-                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Hotdog%20Booth%20Mockup.png?updatedAt=1753573713676" alt="Hotdog Booth Mockup 1" class="slide active">
+                        <div class="slideshow-container" data-slideshow="hotdog">
+                            <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Hotdog%20Booth%20Mockup.png?updatedAt=1753573713676" alt="Hotdog Booth Mockup 1" class="slide">
                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Ola%20generated%20images/Hotdog%20Booth%20Mockup.png" alt="Hotdog Booth Mockup 2" class="slide">
                         </div>
                         <p class="how-switch-helps"><strong>How Switch Helps:</strong> Specialized Décor, Branding, Sound, Live Entertainment Integration, Organizers.</p>
                     </div>
-                    <!-- UPDATED: Influencer Content Slideshow -->
                     <div class="activation-card animate-on-scroll">
                         <h3>Influencer & Engaging Content</h3>
                         <p class="concept">Concept: Partnering with influencers for "Fuel for a Day" experiences or "Car Karaoke Booths" to generate authentic content.</p>
-                        <div class="slideshow-container">
-                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Live%20Event%20Zone%20Mockup(1).png?updatedAt=1753574289530" alt="Influencer Content Mockup 1" class="slide active">
-                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Hotdog%20Booth%20Mockup.png?updatedAt=1753573713676" alt="Influencer Content Mockup 2" class="slide">
+                        <div class="slideshow-container" data-slideshow="influencer">
+                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Live%20Event%20Zone%20Mockup(1).png?updatedAt=1753574289530" alt="Influencer Content Mockup 1" class="slide">
+                             <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Influencer%202.png" alt="Influencer Content Mockup 2" class="slide">
                         </div>
                         <p class="how-switch-helps"><strong>How Switch Helps:</strong> Full-spectrum Content Creation, Storyboarding, Crew, Director, Editing, Production Logistics.</p>
                     </div>
@@ -491,7 +290,6 @@
             </div>
         </section>
 
-        <!-- NEW: Activation Overview Section -->
         <section class="activation-overview" style="background-color: var(--light-grey);">
             <div class="container">
                 <div class="section-intro animate-on-scroll">
@@ -499,20 +297,17 @@
                     <p>This is more than a series of individual events; it's a unified re-launch strategy. The following visuals offer a glimpse into how these activations will combine to create a vibrant, cohesive, and unmissable brand presence at every station, turning passive drivers into active, engaged customers.</p>
                 </div>
                 <div class="slideshow-container animate-on-scroll" id="overview-slideshow" style="max-width: 900px; margin: auto; height: 500px;">
-                    <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/re-launching%20Ola-%20midtop?updatedAt=1753580713464" alt="Re-launch Concept 1" class="slide active">
+                    <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/re-launching%20Ola-%20midtop?updatedAt=1753580713464" alt="Re-launch Concept 1" class="slide">
                     <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Digital%20Loyalty%20Zone%20Mockup%20top%20view.png?updatedAt=1753573366642" alt="Re-launch Concept 2" class="slide">
-                    <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Scaffolded%20tower.png?updatedAt=1753549361627" alt="Re-launch Concept 3" class="slide">
+                    <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Scaffolded%20tower.png?updatedAt=1753603538598" alt="Re-launch Concept 3" class="slide">
                     <img src="https://ik.imagekit.io/ko0ec3rfg/Ola/Spin%20&%20Win%202.png?updatedAt=1753548549528" alt="Re-launch Concept 4" class="slide">
                 </div>
             </div>
         </section>
         
-        <!-- 4. Why Store Activation Drives Transformation -->
         <section class="value-prop">
             <div class="container">
-                <div class="section-intro animate-on-scroll">
-                    <h2>Why Store Activation Drives Transformation</h2>
-                </div>
+                <div class="section-intro animate-on-scroll"><h2>Why Store Activation Drives Transformation</h2></div>
                 <div class="value-prop-grid">
                     <div class="value-item animate-on-scroll"><h3>Emotional Connection</h3><p>Builds strong emotional bonds with the OLA brand beyond the transaction.</p></div>
                     <div class="value-item animate-on-scroll"><h3>Word-of-Mouth</h3><p>Encourages customers to talk about OLA for its experiences, not just its fuel.</p></div>
@@ -523,14 +318,19 @@
             </div>
         </section>
 
-        <!-- 5. Call to Action -->
         <section class="cta" id="cta-section">
             <div class="container animate-on-scroll">
                 <h2>Let's Start the Conversation.</h2>
                 <p>We are confident that by "switching the perspective," we can transform OLA Energy into a brand that Egyptians not only need but love. <br>Send us a message to discuss how we can bring these activations to life.</p>
                 
-                <!-- UPDATED: Formspree Contact Form -->
-                <form class="contact-form" action="https://formspree.io/f/xvgqankd" method="POST">
+                <div class="form-message success" id="success-message">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+                <div class="form-message error" id="error-message">
+                    Sorry, there was an error sending your message. Please try again.
+                </div>
+                
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xvgqankd" method="POST">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" required>
                     
@@ -540,7 +340,7 @@
                     <label for="message">Your Message:</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                     
-                    <button type="submit">Send Message</button>
+                    <button type="submit" id="submit-btn">Send Message</button>
                 </form>
             </div>
         </section>
@@ -549,11 +349,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- Before & After Slider ---
+            // Before/After Image Slider
             const container = document.getElementById('before-after');
             if (container) {
-                const handle = container.querySelector('.slider-handle');
-                const afterImage = container.querySelector('.after-image');
+                const handle = container.querySelector('.slider-handle'), afterImage = container.querySelector('.after-image');
                 let isDragging = false;
                 const startDragging = (e) => { isDragging = true; e.preventDefault(); };
                 const stopDragging = () => { isDragging = false; };
@@ -562,38 +361,38 @@
                     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
                     const rect = container.getBoundingClientRect();
                     let offsetX = clientX - rect.left;
-                    if (offsetX < 0) offsetX = 0;
-                    if (offsetX > rect.width) offsetX = rect.width;
+                    if (offsetX < 0) offsetX = 0; if (offsetX > rect.width) offsetX = rect.width;
                     const percentage = (offsetX / rect.width) * 100;
-                    handle.style.left = `${percentage}%`;
-                    afterImage.style.width = `${percentage}%`;
+                    handle.style.left = `${percentage}%`; afterImage.style.width = `${percentage}%`;
                 };
-                handle.addEventListener('mousedown', startDragging);
-                document.addEventListener('mouseup', stopDragging);
-                document.addEventListener('mousemove', onDrag);
-                handle.addEventListener('touchstart', startDragging);
-                document.addEventListener('touchend', stopDragging);
-                document.addEventListener('touchmove', onDrag);
+                handle.addEventListener('mousedown', startDragging); document.addEventListener('mouseup', stopDragging);
+                document.addEventListener('mousemove', onDrag); handle.addEventListener('touchstart', startDragging);
+                document.addEventListener('touchend', stopDragging); handle.addEventListener('touchmove', onDrag);
             }
 
-            // --- Generic Slideshow Initializer ---
+            // FIXED: Improved Slideshow Functionality
             const slideshows = document.querySelectorAll('.slideshow-container');
-            slideshows.forEach(slideshow => {
+            slideshows.forEach((slideshow, index) => {
                 const slides = slideshow.querySelectorAll('.slide');
-                if (slides.length > 1) {
+                if (slides.length > 0) {
                     let currentSlide = 0;
+                    
+                    // Initialize first slide
+                    slides.forEach(slide => slide.classList.remove('active'));
                     slides[currentSlide].classList.add('active');
-                    setInterval(() => {
-                        slides[currentSlide].classList.remove('active');
-                        currentSlide = (currentSlide + 1) % slides.length;
-                        slides[currentSlide].classList.add('active');
-                    }, 3500); // Change image every 3.5 seconds
-                } else if (slides.length === 1) {
-                     slides[0].classList.add('active');
+                    
+                    // Only start slideshow if there are multiple slides
+                    if (slides.length > 1) {
+                        setInterval(() => {
+                            slides[currentSlide].classList.remove('active');
+                            currentSlide = (currentSlide + 1) % slides.length;
+                            slides[currentSlide].classList.add('active');
+                        }, 3500 + (index * 500)); // Stagger the timing for different slideshows
+                    }
                 }
             });
 
-            // --- Animate on Scroll ---
+            // Animation on Scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -602,10 +401,57 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
+            }, { threshold: 0.1 });
             animatedElements.forEach(el => observer.observe(el));
+
+            // FIXED: Enhanced Form Handling with Formspree
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Disable submit button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                // Hide any previous messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Success
+                        successMessage.style.display = 'block';
+                        form.reset();
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                } catch (error) {
+                    // Error
+                    errorMessage.style.display = 'block';
+                    console.error('Form submission error:', error);
+                } finally {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
         });
     </script>
 </body>
